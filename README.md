@@ -1,22 +1,22 @@
 # Heroicon
 
-[![Gem Version](https://badge.fury.io/rb/heroicon-ruby.svg)](https://rubygems.org/gems/heroicon-ruby)
-[![Build Status](https://github.com/jclusso/heroicon-ruby/workflows/CI/badge.svg)](https://github.com/jclusso/heroicon-ruby/actions)
+[![Gem Version](https://badge.fury.io/rb/heroicons.svg)](https://rubygems.org/gems/heroicons)
+[![Build Status](https://github.com/jclusso/heroicons/workflows/CI/badge.svg)](https://github.com/jclusso/heroicons/actions)
 
 Ruby on Rails view helpers for the beautiful hand-crafted SVG icons, Heroicons.
 
 This gem has no official affiliation with Tailwind CSS or the Heroicon team. Check out their sites:
 
-- [Tailwind CSS](https://tailwindcss.com/?utm_source=jclusso_heroicon-ruby_github)
-- [Tailwind UI](https://tailwindui.com/?utm_source=jclusso_heroicon-ruby_github)
-- [Heroicons](https://heroicons.com/?utm_source=jclusso_heroicon-ruby_github)
+- [Tailwind CSS](https://tailwindcss.com/?utm_source=jclusso_heroicons_github)
+- [Tailwind UI](https://tailwindui.com/?utm_source=jclusso_heroicons_github)
+- [Heroicons](https://heroicons.com/?utm_source=jclusso_heroicons_github)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "heroicon-ruby"
+gem "heroicons"
 ```
 
 And then execute:
@@ -99,15 +99,15 @@ Disabling the default class in the view:
 
 Anyone is encouraged to help improve this project. Here are a few ways you can help:
 
-- [Report bugs](https://github.com/jclusso/heroicon-ruby/issues)
-- Fix bugs and [submit pull requests](https://github.com/jclusso/heroicon-ruby/pulls)
+- [Report bugs](https://github.com/jclusso/heroicons/issues)
+- Fix bugs and [submit pull requests](https://github.com/jclusso/heroicons/pulls)
 - Write, clarify, or fix documentation
 - Suggest or add new features
 
 To get started with development:
 
 ```
-git clone https://github.com/jclusso/heroicon-ruby.git
+git clone https://github.com/jclusso/heroicons.git
 cd heroicon
 bundle install
 bundle exec rake test
