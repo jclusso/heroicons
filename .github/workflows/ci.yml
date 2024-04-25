@@ -18,6 +18,7 @@ jobs:
           bundler-cache: true
 
       - name: Test against Rails main
+        if: ${{ matrix.ruby >= 3.1 }}
         run: |
           bundle exec appraisal rails-main bundle install
           bundle exec appraisal rails-main rake test
