@@ -19,5 +19,5 @@ task :test do
 end
 
 task :lint do
-  sh "bin/standardrb --no-fix"
+  sh "bin/rubocop"
 end

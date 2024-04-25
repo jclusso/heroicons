@@ -3,7 +3,7 @@
 require "test_helper"
 
 class Heroicons::IconTest < ActiveSupport::TestCase
-  let(:default_args) { { name: "user", variant: :outline, options: {}, path_options: {}} }
+  let(:default_args) { { name: "user", variant: :outline, options: {}, path_options: {} } }
   subject { Heroicons::Icon.new(**default_args) }
 
   describe "#initialize" do
@@ -49,7 +49,7 @@ class Heroicons::IconTest < ActiveSupport::TestCase
     context "default class present" do
       context "disable_default_class is true" do
         it "disables prepending the class" do
-          Heroicons.configuration.stubs(:default_class).returns({solid: "foobar"})
+          Heroicons.configuration.stubs(:default_class).returns({ solid: "foobar" })
           subject.options[:disable_default_class] = true
           subject.options[:class] = "custom_class"
           assert_equal "custom_class", subject.render.at_css("svg").attributes["class"].value
@@ -58,7 +58,7 @@ class Heroicons::IconTest < ActiveSupport::TestCase
 
       context "default class is a hash" do
         it "prepends the default variant class" do
-          Heroicons.configuration.stubs(:default_class).returns({solid: "foobar"})
+          Heroicons.configuration.stubs(:default_class).returns({ solid: "foobar" })
           subject.stubs(:variant).returns(:solid)
           assert_equal "foobar", subject.render.at_css("svg").attributes["class"].value
         end
@@ -96,7 +96,7 @@ class Heroicons::IconTest < ActiveSupport::TestCase
       context "development" do
         it "renders a warning" do
           subject.stubs(name: rand.to_s)
-          Rails.stubs(:env).returns(OpenStruct.new(development?: true))
+          Rails.env.stubs(:development?).returns(true)
 
           assert_match(/^<script/, subject.render.to_s)
         end
