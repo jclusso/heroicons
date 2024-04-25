@@ -1,11 +1,11 @@
-# Heroicon
+# Heroicons
 
 [![Gem Version](https://badge.fury.io/rb/heroicons.svg)](https://rubygems.org/gems/heroicons)
 [![Build Status](https://github.com/jclusso/heroicons/workflows/CI/badge.svg)](https://github.com/jclusso/heroicons/actions)
 
 Ruby on Rails view helpers for the beautiful hand-crafted SVG icons, Heroicons.
 
-This gem has no official affiliation with Tailwind CSS or the Heroicon team. Check out their sites:
+This gem has no official affiliation with Tailwind CSS or the Heroicons team. Check out their sites:
 
 - [Tailwind CSS](https://tailwindcss.com/?utm_source=jclusso_heroicons_github)
 - [Tailwind UI](https://tailwindui.com/?utm_source=jclusso_heroicons_github)
@@ -28,7 +28,7 @@ $ bundle
 Run the installer
 
 ```bash
-$ rails g heroicon:install
+$ rails g heroicons:install
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ To use a icon in your views, simply use the provided view helper with the name o
 <%= heroicon "magnifying-glass" %>
 ```
 
-Heroicon comes with 4 variants, `:outline`, `:solid`, `:mini`, and `:micro`. The default variant is `:solid`. This can be changed in `config/initializers/heroicon.rb`, which is generated during installation (See [Configuration](#configuration)). To overwrite this in the view, use
+Heroicons comes with 4 variants, `:outline`, `:solid`, `:mini`, and `:micro`. The default variant is `:solid`. This can be changed in `config/initializers/heroicons.rb`, which is generated during installation (See [Configuration](#configuration)). To overwrite this in the view, use
 
 ```rb
 <%= heroicon "magnifying-glass", variant: :outline %>
@@ -51,21 +51,21 @@ You can also pass HTML options directly to the icon.
 <%= heroicon "magnifying-glass", options: { class: "text-primary-500" } %>
 ```
 
-Heroicon currently supports icons matching [`Version 2.1.1`](https://github.com/tailwindlabs/heroicons/releases/tag/v2.1.1). If there is an icon that is missing or a new version released, feel free to contribute by following our contributing guide below.
+Heroicons currently supports icons matching [`Version 2.1.3`](https://github.com/tailwindlabs/heroicons/releases/tag/v2.1.3). If there is an icon that is missing or a new version released, feel free to contribute by following our contributing guide below.
 
 # Configuration
 
-After running `rails g heroicon:install` in the installation step, a configuration file will be created at `config/initializers/heroicon.rb`.
+After running `rails g heroicons:install` in the installation step, a configuration file will be created at `config/initializers/heroicons.rb`.
 
 Currently there are two configuration options:
 
 - `variant`: The default variant to use if no variant is specified in the view.
-  - You can set this to either `:outline` or `:solid`. Defaults to `:solid`.
+  - You can set this to either `:outline`, `:solid`, `:mini`, or `:micro`. Defaults to `:solid`.
 - `default_class`: A default class that gets applied to every icon.
   - This accepts either a String to apply to every icon, or a Hash, which applies the class based on the variant of the icon (see the example below).
   - You can disable this on a per-icon basis by passing `disable_default_class: true` in the options hash within the view.
 
-**Note:** If you enable the `default_class` config, make sure to include `config/intializers/heroicon.rb` in the list of purged paths. For TailwindCSS 3.0+, you should have something like this in your `tailwind.config.js`:
+**Note:** If you enable the `default_class` config, make sure to include `config/initializers/heroicons.rb` in the list of purged paths. For TailwindCSS 3.0+, you should have something like this in your `tailwind.config.js`:
 
 ```js
 module.exports = {
@@ -74,7 +74,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*',
-    './config/initializers/heroicon.rb', // 👈
+    './config/initializers/heroicons.rb', // 👈
   ],
   //...
 }
@@ -83,9 +83,14 @@ module.exports = {
 An example configuration looks like this:
 
 ```ruby
-Heroicon.configure do |config|
+Heroicons.configure do |config|
   config.variant = :solid
-  config.default_class = {solid: "h-6 w-6", outline: "h-6 w-6", mini: "h-5 w-5"}
+  config.default_class = {
+    solid: "size-6",
+    outline: "size-6",
+    mini: "size-5",
+    micro: "size-4",
+  }
 end
 ```
 
@@ -108,7 +113,7 @@ To get started with development:
 
 ```
 git clone https://github.com/jclusso/heroicons.git
-cd heroicon
+cd heroicons
 bundle install
 bundle exec rake test
 ```
