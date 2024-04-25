@@ -51,7 +51,7 @@ You can also pass HTML options directly to the icon.
 <%= heroicon "magnifying-glass", options: { class: "text-primary-500" } %>
 ```
 
-Heroicons currently supports icons matching [`Version 2.1.1`](https://github.com/tailwindlabs/heroicons/releases/tag/v2.1.1). If there is an icon that is missing or a new version released, feel free to contribute by following our contributing guide below.
+Heroicons currently supports icons matching [`Version 2.1.3`](https://github.com/tailwindlabs/heroicons/releases/tag/v2.1.3). If there is an icon that is missing or a new version released, feel free to contribute by following our contributing guide below.
 
 # Configuration
 
