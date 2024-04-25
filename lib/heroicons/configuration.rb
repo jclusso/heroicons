@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-module Heroicon
+module Heroicons
   class Configuration
     DEFAULT_VARIANT = :solid
 

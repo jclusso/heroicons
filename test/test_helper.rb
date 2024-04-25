@@ -1,17 +1,13 @@
-# frozen_string_literal: true
-
-# Configure Rails Environment
-ENV["RAILS_ENV"] = "test"
-
 require "rails"
+require "heroicons"
 require "nokogiri"
-require "heroicon"
-
-# Rails.application.initialize!
-
-require "minitest/pride"
 require "minitest/spec"
+require "minitest/reporters"
 require "mocha/minitest"
+
+Minitest::Reporters.use! [
+  Minitest::Reporters::ProgressReporter.new(color: true)
+]
 
 # Filter out the backtrace from minitest while preserving the one from other libraries.
 Minitest.backtrace_filter = Minitest::BacktraceFilter.new

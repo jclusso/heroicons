@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 require "test_helper"
-require "pry"
 
-class Heroicon::IconTest < ActiveSupport::TestCase
+class Heroicons::IconTest < ActiveSupport::TestCase
   let(:default_args) { { name: "user", variant: :outline, options: {}, path_options: {}} }
-  subject { Heroicon::Icon.new(**default_args) }
+  subject { Heroicons::Icon.new(**default_args) }
 
   describe "#initialize" do
     it "requires name" do
       default_args.delete(:name)
-      assert_raises(ArgumentError) { Heroicon::Icon.new(**default_args) }
+      assert_raises(ArgumentError) { Heroicons::Icon.new(**default_args) }
     end
 
     it "sets name" do
@@ -19,7 +18,7 @@ class Heroicon::IconTest < ActiveSupport::TestCase
 
     it "requires variant" do
       default_args.delete(:variant)
-      assert_raises(ArgumentError) { Heroicon::Icon.new(**default_args) }
+      assert_raises(ArgumentError) { Heroicons::Icon.new(**default_args) }
     end
 
     it "sets variant" do
@@ -33,12 +32,12 @@ class Heroicon::IconTest < ActiveSupport::TestCase
 
     it "requires options" do
       default_args.delete(:options)
-      assert_raises(ArgumentError) { Heroicon::Icon.new(**default_args) }
+      assert_raises(ArgumentError) { Heroicons::Icon.new(**default_args) }
     end
 
     it "requires path_options" do
       default_args.delete(:path_options)
-      assert_raises(ArgumentError) { Heroicon::Icon.new(**default_args) }
+      assert_raises(ArgumentError) { Heroicons::Icon.new(**default_args) }
     end
   end
 
@@ -50,7 +49,7 @@ class Heroicon::IconTest < ActiveSupport::TestCase
     context "default class present" do
       context "disable_default_class is true" do
         it "disables prepending the class" do
-          Heroicon.configuration.stubs(:default_class).returns({solid: "foobar"})
+          Heroicons.configuration.stubs(:default_class).returns({solid: "foobar"})
           subject.options[:disable_default_class] = true
           subject.options[:class] = "custom_class"
           assert_equal "custom_class", subject.render.at_css("svg").attributes["class"].value
@@ -59,7 +58,7 @@ class Heroicon::IconTest < ActiveSupport::TestCase
 
       context "default class is a hash" do
         it "prepends the default variant class" do
-          Heroicon.configuration.stubs(:default_class).returns({solid: "foobar"})
+          Heroicons.configuration.stubs(:default_class).returns({solid: "foobar"})
           subject.stubs(:variant).returns(:solid)
           assert_equal "foobar", subject.render.at_css("svg").attributes["class"].value
         end
@@ -67,19 +66,19 @@ class Heroicon::IconTest < ActiveSupport::TestCase
 
       context "default class is a string" do
         it "prepends the default variant class" do
-          Heroicon.configuration.stubs(:default_class).returns("foobar")
+          Heroicons.configuration.stubs(:default_class).returns("foobar")
           subject.stubs(:variant).returns(:solid)
           assert_equal "foobar", subject.render.at_css("svg").attributes["class"].value
         end
       end
 
       it "prepends a default class to the svg" do
-        Heroicon.configure do |config|
-          config.default_class = { solid: "h-5 w-5", outline: "h-6 w-6", mini: "h-4 w-4" }
+        Heroicons.configure do |config|
+          config.default_class = { solid: "size-5", outline: "size-6", mini: "size-4" }
         end
 
         subject.options[:class] = "foo"
-        assert_equal "h-6 w-6 foo", subject.render.at_css("svg").attributes["class"].value
+        assert_equal "size-6 foo", subject.render.at_css("svg").attributes["class"].value
       end
     end
 

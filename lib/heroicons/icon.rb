@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-module Heroicon
+module Heroicons
   class Icon
     attr_reader :name, :variant, :options, :path_options
 
@@ -40,11 +38,11 @@ module Heroicon
     # to all icons, or a Hash, which will apply to the specified variant.
     #
     # @example
-    #   Heroicon.configure do |config|
-    #     config.default_class = { solid: "h-5 w-5", outline: "h-6 w-6", mini: "h-4 w-4" }
+    #   Heroicons.configure do |config|
+    #     config.default_class = { solid: "size-5", outline: "size-6", mini: "size-4", micro: "size-4" }
     #   end
     #
-    #   #=> <svg class="h-5 w-5">...</svg>
+    #   #=> <svg class="size-5">...</svg>
     def prepend_default_class_name
       return if disable_default_class?
 
@@ -74,7 +72,7 @@ module Heroicon
     end
 
     def default_class_config
-      @default_class_config ||= Heroicon.configuration.default_class
+      @default_class_config ||= Heroicons.configuration.default_class
     end
 
     def disable_default_class?
@@ -96,7 +94,7 @@ module Heroicon
     end
 
     def file_path
-      File.join(Heroicon.root, "app/assets/images/heroicon/#{variant}/#{name}.svg")
+      File.join(Heroicons.root, "app/assets/images/heroicons/#{variant}/#{name}.svg")
     end
 
     def warning
@@ -105,7 +103,7 @@ module Heroicon
       script = <<-HTML
       <script type="text/javascript">
       //<![CDATA[
-      console.warn("Heroicon: Failed to find heroicon: #{name}")
+      console.warn("Heroicons: Failed to find heroicon: #{name}")
       //]]>
       </script>
       HTML

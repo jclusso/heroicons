@@ -1,14 +1,12 @@
-# frozen_string_literal: true
-
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "heroicon/version"
+require "heroicons/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
   spec.name = "heroicons"
-  spec.version = Heroicon::VERSION
+  spec.version = Heroicons::VERSION
   spec.authors = ["Jarrett Lusso"]
   spec.email = ["jclusso@gmail.com"]
   spec.homepage = "https://github.com/jclusso/heroicons"
@@ -24,9 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "railties", ">= 5.2"
 
   spec.add_development_dependency "appraisal"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "pry-rails"
   spec.add_development_dependency "standard"
-  spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "mocha"
 end
