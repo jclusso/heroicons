@@ -14,6 +14,16 @@ Gem::Specification.new do |spec|
   spec.description = "Ruby on Rails view helpers for the beautiful hand-crafted SVG icons, Heroicons."
   spec.license = "MIT"
 
+  spec.metadata = {
+    "bug_tracker_uri" => "https://github.com/jclusso/heroicons/issues",
+    "changelog_uri" => "https://github.com/jclusso/heroicons/releases",
+    "documentation_uri" => "https://github.com/jclusso/heroicons",
+    "github_repo" => "ssh://github.com/jclusso/heroicons",
+    "homepage_uri" => "https://github.com/jclusso/heroicons",
+    "source_code_uri" => "https://github.com/jclusso/heroicons",
+    "rubygems_mfa_required" => "true"
+  }
+
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.required_ruby_version = ">= 2.7"
