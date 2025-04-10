@@ -25,7 +25,7 @@ jobs:
           bundle exec appraisal rails-main rake test
 
       - name: Test against Rails 8.0
-        if: ${{ matrix.ruby >= 3.1 }}
+        if: ${{ matrix.ruby >= 3.2 }}
         run: |
           bundle exec appraisal rails-8-0 bundle install
           bundle exec appraisal rails-8-0 rake test
