@@ -35,11 +35,6 @@ jobs:
           bundle exec appraisal rails-7-1 bundle install
           bundle exec appraisal rails-7-1 rake test
 
-      - name: Test against Rails 6.1
-        run: |
-          bundle exec appraisal rails-6-1 bundle install
-          bundle exec appraisal rails-6-1 rake test
-
   linters:
     name: Linters
     runs-on: ubuntu-latest
