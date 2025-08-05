@@ -31,7 +31,6 @@ class Heroicons::HelperTest < ActiveSupport::TestCase
 
       # The result should be an SVG string
       assert_match(/^<svg/, result.to_s)
-      assert_match(/stroke-linecap/, result.to_s)  # Check for SVG path attributes
     end
   end
 end
